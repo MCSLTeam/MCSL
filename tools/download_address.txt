@@ -1,0 +1,41 @@
+java8 32
+https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jre/x32/windows/OpenJDK8U-jre_x86-32_windows_hotspot_8u345b01.zip
+java8 64
+https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jre/x64/windows/OpenJDK8U-jre_x64_windows_hotspot_8u345b01.zip
+java16 32
+https://download.fastgit.org/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9/OpenJDK16U-jre_x86-32_windows_hotspot_16.0.1_9.zip
+java16 64
+https://download.fastgit.org/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9/OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.zip
+java17 32
+https://mirrors.tuna.tsinghua.edu.cn/Adoptium/17/jre/x32/windows/OpenJDK17U-jre_x86-32_windows_hotspot_17.0.4.1_1.zip
+java17 64
+https://mirrors.tuna.tsinghua.edu.cn/Adoptium/17/jre/x64/windows/OpenJDK17U-jre_x64_windows_hotspot_17.0.4.1_1.zip
+java18 32
+https://mirrors.tuna.tsinghua.edu.cn/Adoptium/18/jre/x32/windows/OpenJDK18U-jre_x86-32_windows_hotspot_18.0.2_9.zip
+java18 64
+https://mirrors.tuna.tsinghua.edu.cn/Adoptium/18/jre/x64/windows/OpenJDK18U-jre_x64_windows_hotspot_18.0.2_9.zip
+
+Paper 1.8.8
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.8.8-445.jar
+Paper 1.9.4
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.9.4-775.jar
+Paper 1.10.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.10.2-918.jar
+Paper 1.11.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.11.2-1106.jar
+Paper 1.12.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.12.2-1620.jar
+Paper 1.13.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.13.2-657.jar
+Paper 1.14.4
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.14.4-245.jar
+Paper 1.15.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.15.2-393.jar
+Paper 1.16.5
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.16.5-794.jar
+Paper 1.17.1
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.17.1-411.jar
+Paper 1.18.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.18.2-387.jar
+Paper 1.19.2
+https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.19.2-133.jar

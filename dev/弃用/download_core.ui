@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>375</width>
+    <height>194</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>1</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>下载服务器核心</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <disabledoff>icon.ico</disabledoff>
+    <selectedon>icon.ico</selectedon>
+   </iconset>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Tips：下载的是Paper核心，其余暂时只能自行下载</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>70</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <item>
+    <property name="text">
+     <string>——————请选择——————</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.8.8</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.9.4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.10.2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.11.2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.12.2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.13.2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.14.4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.15.2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.16.5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.17.1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.18.2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1.19.2</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>154</x>
+     <y>140</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>选择保存位置&amp;&amp;下载</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>选择版本：</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>下载不了？</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
