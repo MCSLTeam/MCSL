@@ -404,6 +404,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         save_command.close()
         os.chdir("server")
         os.system(r"command.bat")
+        time.sleep(7)
         os.system(kill_cmd)
 
     def find_func(self):
