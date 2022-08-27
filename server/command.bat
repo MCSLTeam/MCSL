@@ -1,1 +1,1 @@
-"C:\Program Files\Eclipse Adoptium\jre-18.0.2.9-hotspot\bin\javaw.exe" -server -Xms1024M -Xmx2048M -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -jar "server.jar"
+"C:/Program Files/Eclipse Adoptium/jre-18.0.2.9-hotspot/bin/javaw.exe" -server -Xms1024M -Xmx2048M -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -jar "server.jar"
