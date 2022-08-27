@@ -3,11 +3,11 @@
 # 引用库
 import os
 import string
-# import string
+import time
+import psutil
 import sys
-# import re
-from shutil import copyfile
 
+from shutil import copyfile
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 
@@ -278,6 +278,20 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         kill_cmd = str("taskkill /f /im cmd.exe")
         os.system("start ./config//auto_find_java.exe")
         os.system(kill_cmd)
+        def checkprocess(processname):
+            global ljavapath
+            pl = psutil.pids()
+            for pid in pl:
+                if psutil.Process(pid).name() == processname:
+                    return pid
+        if isinstance(checkprocess("auto_find_java.exe"), int):
+            time.sleep(10)
+            auto_set_java = open(r'config//javapath.ini', 'r')
+            ljavapath = auto_set_java.read()
+            auto_set_java.close()
+            self.lineEdit.setText(ljavapath)
+        else:
+            print("1145141919810")
 
     def show_dlcore(self):
         kill_cmd = str("taskkill /f /im cmd.exe")
@@ -426,7 +440,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
                     if filename in file:
                         i = i + 1
                         wr1te = os.path.join(root, file)  # 搜索
-                        print('%s' % (wr1te))
+                        # print('%s' % (wr1te))
                         result.append(wr1te)
                         i = i + 1
             count = len(result)
