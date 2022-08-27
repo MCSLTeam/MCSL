@@ -397,15 +397,12 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         getMaxMem = open(r'config//maxmem.ini','r')
         MaxMem = str(getMaxMem.read())
         getMaxMem.close()
-        kill_cmd = str("taskkill /f /im cmd.exe")
         command = str("\"" + JavaPath + "\" -server -Xms" + MinMem + "M -Xmx" + MaxMem + "M -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -jar \"server.jar\"")
         save_command = open(r'server//command.bat','+w')
         save_command.write(command)
         save_command.close()
         os.chdir("server")
         os.system(r"command.bat")
-        time.sleep(7)
-        os.system(kill_cmd)
 
     def find_func(self):
         global panL
