@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/LxHTT/MCSL/raw/master/back.png"/>
+<img src="https://raw.githubusercontent.com/LxHTT/MCSL/master/Back.png"/>
 </p>
 
 # MCSL   |   一个简洁全能的Minecraft开服器
