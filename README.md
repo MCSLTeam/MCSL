@@ -7,7 +7,7 @@
 ___
 <a href="https://github.com/LxHTT/MCSL/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/LxHTT/MCSL"></a>
 <a href="https://github.com/LxHTT/MCSL/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LxHTT/MCSL"></a>
-<a href="https://github.com/YUXUAN888/FSM3/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/YUXUAN888/FSM3"></a>
+<a href="https://github.com/YUXUAN888/FSM3/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/LxHTT/MCSL"></a>
 
 这是由两个人制作的MC服务器启动器。
 
