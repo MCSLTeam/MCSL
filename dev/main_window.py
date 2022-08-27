@@ -89,14 +89,6 @@ class Ui_MainWindow(object):
         self.toolButton_3.setFont(font)
         self.toolButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.toolButton_3.setObjectName("toolButton_3")
-        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(620, 170, 101, 41))
-        font = QtGui.QFont()
-        font.setFamily("黑体")
-        font.setPointSize(10)
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_6.setGeometry(QtCore.QRect(30, 130, 251, 31))
         font = QtGui.QFont()
@@ -154,6 +146,22 @@ class Ui_MainWindow(object):
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setGeometry(QtCore.QRect(20, 220, 541, 211))
         self.textBrowser.setObjectName("textBrowser")
+        self.toolButton_4 = QtWidgets.QToolButton(self.centralwidget)
+        self.toolButton_4.setGeometry(QtCore.QRect(620, 170, 101, 41))
+        font = QtGui.QFont()
+        font.setFamily("黑体")
+        font.setPointSize(10)
+        self.toolButton_4.setFont(font)
+        self.toolButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.toolButton_4.setObjectName("toolButton_4")
+        self.toolButton_5 = QtWidgets.QToolButton(self.centralwidget)
+        self.toolButton_5.setGeometry(QtCore.QRect(620, 120, 101, 41))
+        font = QtGui.QFont()
+        font.setFamily("黑体")
+        font.setPointSize(10)
+        self.toolButton_5.setFont(font)
+        self.toolButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.toolButton_5.setObjectName("toolButton_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -174,7 +182,6 @@ class Ui_MainWindow(object):
         self.toolButton_2.setText(_translate("MainWindow", "下载Java"))
         self.toolButton_3.setText(_translate("MainWindow", "下载服务\n"
 "器核心"))
-        self.pushButton_5.setText(_translate("MainWindow", "提交Bug"))
         self.pushButton_6.setText(_translate("MainWindow", "选择..."))
         self.pushButton_7.setText(_translate("MainWindow", "确定"))
         self.label_2.setText(_translate("MainWindow", "选择服务器核心：（一个服务器仅须操作一次,选过就别确定了）"))
@@ -191,12 +198,18 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java默认下载AdoptOpenJDK，其余可以自行百度。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">服务器核心默认下载Paper，其余自己搜索（？</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">服务器路径为程序同目录下的</span><span style=\" font-size:12pt; font-weight:600;\">server</span><span style=\" font-size:12pt;\">文件夹。</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">如果无法启动，可使用程序在server文件夹生成的备用启动方式</span><span style=\" font-size:12pt; font-weight:600;\">command.bat</span><span style=\" font-size:12pt;\">。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">由于暂时不会考虑添加关闭服务器功能，所以如需关闭服务器，请在服务器中输入</span><span style=\" font-size:12pt; font-weight:600; color:#c80b37;\">stop</span><span style=\" font-size:12pt;\">指令来安全关闭您的服务器。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">***自动查找Java暂时不可用！！！***</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">遇到Bug，请积极反馈。</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">遇到Bug，请积极反馈。</span><a href=\"https://www.wjx.top/vm/mBwRt23.aspx\"><span style=\" text-decoration: underline; color:#0000ff;\">》》反馈地址点我《《</span></a></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">主程序：落雪无痕LxHTT   QQ：3395314362</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">下载模块：ChinaT   QQ：3273789867</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">——————————————————————</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.1更新日志：</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">修复在未选择Jar情况下闪退的Bug,增加了配置导入导出功能。</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">———————————</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.0更新日志：</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">初版。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java自动查找功能暂时不可用，可自行设定路径。</span></p></body></html>"))
+        self.toolButton_4.setText(_translate("MainWindow", "导出配置"))
+        self.toolButton_5.setText(_translate("MainWindow", "导入配置"))
