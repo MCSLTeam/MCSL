@@ -39,3 +39,30 @@ Paper 1.18.2
 https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.18.2-387.jar
 Paper 1.19.2
 https://download.fastgit.org/LxHTT/MCSL_PaperCoreDownload/releases/download/Publish/paper-1.19.2-133.jar
+
+Spigot 1.7.10
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.7.10.jar
+Spigot 1.8.9
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.8.9.jar
+Spigot 1.9.4
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.9.4.jar
+Spigot 1.10.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.10.2.jar
+Spigot 1.11.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.11.2.jar
+Spigot 1.12.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.12.2.jar
+Spigot 1.13.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.13.2.jar
+Spigot 1.14.4
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.14.4.jar
+Spigot 1.15.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.15.2.jar
+Spigot 1.16.5
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.16.5.jar
+Spigot 1.17.1
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.17.1.jar
+Spigot 1.18.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.18.2.jar
+Spigot 1.19.2
+https://download.fastgit.org/LxHTT/MCSL_SpigotCoreDownload/releases/download/Publish/spigot-1.19.2.jar
