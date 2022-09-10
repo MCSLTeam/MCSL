@@ -40,6 +40,7 @@ class Ui_MainWindow(object):
         self.exit_pushButton.setObjectName("exit_pushButton")
         self.set_java_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.set_java_lineEdit.setGeometry(QtCore.QRect(30, 60, 381, 31))
+        self.set_java_lineEdit.setStyleSheet("")
         self.set_java_lineEdit.setObjectName("set_java_lineEdit")
         self.set_java_label = QtWidgets.QLabel(self.centralwidget)
         self.set_java_label.setGeometry(QtCore.QRect(30, 40, 381, 16))
@@ -106,7 +107,7 @@ class Ui_MainWindow(object):
         self.set_core_label.setTextFormat(QtCore.Qt.PlainText)
         self.set_core_label.setObjectName("set_core_label")
         self.min_mem_label = QtWidgets.QLabel(self.centralwidget)
-        self.min_mem_label.setGeometry(QtCore.QRect(30, 180, 171, 16))
+        self.min_mem_label.setGeometry(QtCore.QRect(29, 180, 241, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(11)
@@ -114,7 +115,7 @@ class Ui_MainWindow(object):
         self.min_mem_label.setTextFormat(QtCore.Qt.PlainText)
         self.min_mem_label.setObjectName("min_mem_label")
         self.max_mem_label = QtWidgets.QLabel(self.centralwidget)
-        self.max_mem_label.setGeometry(QtCore.QRect(240, 180, 171, 16))
+        self.max_mem_label.setGeometry(QtCore.QRect(290, 180, 361, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(11)
@@ -122,13 +123,13 @@ class Ui_MainWindow(object):
         self.max_mem_label.setTextFormat(QtCore.Qt.PlainText)
         self.max_mem_label.setObjectName("max_mem_label")
         self.min_mem_spinBox = QtWidgets.QSpinBox(self.centralwidget)
-        self.min_mem_spinBox.setGeometry(QtCore.QRect(111, 180, 61, 22))
+        self.min_mem_spinBox.setGeometry(QtCore.QRect(100, 180, 91, 22))
         self.min_mem_spinBox.setObjectName("min_mem_spinBox")
         self.max_mem_spinBox = QtWidgets.QSpinBox(self.centralwidget)
-        self.max_mem_spinBox.setGeometry(QtCore.QRect(321, 180, 61, 22))
+        self.max_mem_spinBox.setGeometry(QtCore.QRect(360, 180, 91, 22))
         self.max_mem_spinBox.setObjectName("max_mem_spinBox")
         self.mem_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.mem_pushButton.setGeometry(QtCore.QRect(420, 180, 61, 31))
+        self.mem_pushButton.setGeometry(QtCore.QRect(500, 170, 61, 31))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
@@ -155,16 +156,13 @@ class Ui_MainWindow(object):
         self.import_config_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.import_config_toolButton.setObjectName("import_config_toolButton")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MCSL v1.2 By 落雪无痕LxHTT&ChinaT"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MCSL v1.2"))
         self.start_pushButton.setText(_translate("MainWindow", "启动"))
         self.exit_pushButton.setText(_translate("MainWindow", "退出程序"))
         self.set_java_label.setText(_translate("MainWindow", "设置Java路径：（切勿包含中文和特殊字符）"))
@@ -175,8 +173,8 @@ class Ui_MainWindow(object):
         self.set_core_pushButton.setText(_translate("MainWindow", "选择..."))
         self.copy_core_pushButton.setText(_translate("MainWindow", "确定"))
         self.set_core_label.setText(_translate("MainWindow", "选择服务器核心：（一个服务器仅须操作一次,选过就不需要再操作）"))
-        self.min_mem_label.setText(_translate("MainWindow", "最小内存:          MB"))
-        self.max_mem_label.setText(_translate("MainWindow", "最大内存:          MB"))
+        self.min_mem_label.setText(_translate("MainWindow", "最小内存:              MB"))
+        self.max_mem_label.setText(_translate("MainWindow", "最大内存:              MB"))
         self.mem_pushButton.setText(_translate("MainWindow", "确定"))
         self.introduction_textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -186,7 +184,7 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">这是由两个人制作的MC服务器启动器。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">软件包含了下载、设参、启动诸多功能。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java默认下载AdoptOpenJDK，其余可以自行百度。</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; color:#000000;\">服务器核心已经支持了</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; color:#000000;\">Paper</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; color:#000000;\">和</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; color:#000000;\">Spigot</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; color:#000000;\">下载。</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">服务器核心已经支持了</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">Paper</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">和</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">Spigot</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">下载。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">服务器路径为程序同目录下的</span><span style=\" font-size:12pt; font-weight:600;\">server</span><span style=\" font-size:12pt;\">文件夹。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">如果无法启动，可使用程序在server文件夹生成的备用启动方式</span><span style=\" font-size:12pt; font-weight:600;\">command.bat</span><span style=\" font-size:12pt;\">。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">由于暂时不会考虑添加关闭服务器功能，所以如需关闭服务器，请在服务器中输入</span><span style=\" font-size:12pt; font-weight:600; color:#c80b37;\">stop</span><span style=\" font-size:12pt;\">指令来安全关闭您的服务器。</span></p>\n"

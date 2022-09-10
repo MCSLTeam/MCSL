@@ -3,26 +3,34 @@
 # 引用库
 import os
 import string
-import time
-import psutil
 import sys
-
-from QCandyUi import CandyWindow
+import time
 from shutil import copyfile
+
+import psutil
+import qdarkstyle
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QFileDialog, QMessageBox, QPushButton
+from PyQt5.QtWidgets import QFileDialog, QMessageBox
 
 
 # 主界面
 class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(752, 469)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        MainWindow.setFixedSize(752, 469)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.start_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.start_pushButton.setGeometry(QtCore.QRect(620, 330, 100, 100))
+        self.start_pushButton.setStyleSheet("QPushButton{\n"
+                                    "    background:Gray;\n"
+                                    "    color:white;\n"
+                                    "    box-shadow: 1px 1px 3px;font-size:25px;border-radius: 10px\n"
+                                    "}\n"
+                                    "QPushButton:pressed{\n"
+                                    "    background:black;\n"
+                                    "}")
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(17)
@@ -31,6 +39,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.start_pushButton.setObjectName("start_pushButton")
         self.exit_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.exit_pushButton.setGeometry(QtCore.QRect(620, 20, 101, 41))
+        self.exit_pushButton.setStyleSheet("QPushButton{\n"
+                                    "    background:Red;\n"
+                                    "    color:White;\n"
+                                    "    box-shadow: 1px 1px 3px;font-size:14px;border-radius: 5px\n"
+                                    "}\n"
+                                    "QPushButton:pressed{\n"
+                                    "    background:black;\n"
+                                    "}")
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
@@ -44,7 +60,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.set_java_label.setGeometry(QtCore.QRect(30, 40, 381, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(11)
+        font.setPointSize(10)
         self.set_java_label.setFont(font)
         self.set_java_label.setTextFormat(QtCore.Qt.PlainText)
         self.set_java_label.setObjectName("set_java_label")
@@ -72,6 +88,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.auto_find_java_pushButton.setFont(font)
         self.auto_find_java_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.auto_find_java_pushButton.setObjectName("auto_find_java_pushButton")
+        self.auto_find_java_pushButton.setStyleSheet("QPushButton{\n"
+                                    "    background:yellow;\n"
+                                    "    color:Black;\n"
+                                    "    box-shadow: 1px 1px 3px;font-size:12px;border-radius: 5px\n"
+                                    "}\n"
+                                    "QPushButton:pressed{\n"
+                                    "    background:black;\n"
+                                    "}")
         self.download_toolButton = QtWidgets.QToolButton(self.centralwidget)
         self.download_toolButton.setGeometry(QtCore.QRect(620, 220, 101, 101))
         font = QtGui.QFont()
@@ -80,6 +104,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.download_toolButton.setFont(font)
         self.download_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.download_toolButton.setObjectName("download_toolButton")
+        self.download_toolButton.setStyleSheet("QToolButton{\n"
+                                    "    background:white;\n"
+                                    "    color:Black;\n"
+                                    "    box-shadow: 1px 1px 3px;font-size:25px;border-radius: 10px\n"
+                                    "}\n"
+                                    "QPushButton:pressed{\n"
+                                    "    background:black;\n"
+                                    "}")
         self.set_core_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.set_core_pushButton.setGeometry(QtCore.QRect(30, 130, 251, 31))
         font = QtGui.QFont()
@@ -100,34 +132,38 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.set_core_label.setGeometry(QtCore.QRect(30, 110, 561, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(11)
+        font.setPointSize(10)
         self.set_core_label.setFont(font)
         self.set_core_label.setTextFormat(QtCore.Qt.PlainText)
         self.set_core_label.setObjectName("set_core_label")
         self.min_mem_label = QtWidgets.QLabel(self.centralwidget)
-        self.min_mem_label.setGeometry(QtCore.QRect(30, 180, 171, 16))
+        self.min_mem_label.setGeometry(QtCore.QRect(29, 180, 171, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(11)
+        font.setPointSize(10)
         self.min_mem_label.setFont(font)
         self.min_mem_label.setTextFormat(QtCore.Qt.PlainText)
         self.min_mem_label.setObjectName("min_mem_label")
         self.max_mem_label = QtWidgets.QLabel(self.centralwidget)
-        self.max_mem_label.setGeometry(QtCore.QRect(240, 180, 171, 16))
+        self.max_mem_label.setGeometry(QtCore.QRect(290, 180, 171, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(11)
+        font.setPointSize(10)
         self.max_mem_label.setFont(font)
         self.max_mem_label.setTextFormat(QtCore.Qt.PlainText)
         self.max_mem_label.setObjectName("max_mem_label")
         self.min_mem_spinBox = QtWidgets.QSpinBox(self.centralwidget)
-        self.min_mem_spinBox.setGeometry(QtCore.QRect(111, 180, 61, 22))
+        self.min_mem_spinBox.setGeometry(QtCore.QRect(100, 180, 71, 22))
         self.min_mem_spinBox.setObjectName("min_mem_spinBox")
+        self.min_mem_spinBox.setMinimum(1)
+        self.min_mem_spinBox.setMaximum(2147483647)
         self.max_mem_spinBox = QtWidgets.QSpinBox(self.centralwidget)
-        self.max_mem_spinBox.setGeometry(QtCore.QRect(321, 180, 61, 22))
+        self.max_mem_spinBox.setGeometry(QtCore.QRect(360, 180, 71, 22))
         self.max_mem_spinBox.setObjectName("max_mem_spinBox")
+        self.max_mem_spinBox.setMinimum(1)
+        self.max_mem_spinBox.setMaximum(2147483647)
         self.mem_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.mem_pushButton.setGeometry(QtCore.QRect(420, 180, 61, 31))
+        self.mem_pushButton.setGeometry(QtCore.QRect(500, 170, 61, 31))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
@@ -145,6 +181,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.export_config_toolButton.setFont(font)
         self.export_config_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.export_config_toolButton.setObjectName("export_config_toolButton")
+        self.export_config_toolButton.setStyleSheet("QToolButton{\n"
+                                    "    background:yellow;\n"
+                                    "    color:Black;\n"
+                                    "    box-shadow: 1px 1px 3px;font-size:14px;border-radius: 5px\n"
+                                    "}\n"
+                                    "QPushButton:pressed{\n"
+                                    "    background:black;\n"
+                                    "}")
         self.import_config_toolButton = QtWidgets.QToolButton(self.centralwidget)
         self.import_config_toolButton.setGeometry(QtCore.QRect(620, 120, 101, 41))
         font = QtGui.QFont()
@@ -153,16 +197,20 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.import_config_toolButton.setFont(font)
         self.import_config_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.import_config_toolButton.setObjectName("import_config_toolButton")
+        self.import_config_toolButton.setStyleSheet("QToolButton{\n"
+                                    "    background:yellow;\n"
+                                    "    color:Black;\n"
+                                    "    box-shadow: 1px 1px 3px;font-size:14px;border-radius: 5px\n"
+                                    "}\n"
+                                    "QPushButton:pressed{\n"
+                                    "    background:black;\n"
+                                    "}")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MCSL v1.2 By 落雪无痕LxHTT&ChinaT"))
         configpath = "config.mcsl.ini"
 
         if os.path.exists(configpath):
@@ -184,7 +232,6 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
                 get_set_minmem = open(r'config//minmem.ini', 'w+')
                 get_set_minmem.write(str(getmin_mem))
                 get_set_minmem.close()
-
                 self.max_mem_spinBox.setValue(int(getmax_mem))
                 get_set_maxmem = open(r'config//maxmem.ini', 'w+')
                 get_set_maxmem.write(str(getmax_mem))
@@ -196,7 +243,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.start_pushButton.setText(_translate("MainWindow", "启动"))
         self.start_pushButton.clicked.connect(self.start_server)
         self.exit_pushButton.setText(_translate("MainWindow", "退出程序"))
-        self.exit_pushButton.clicked.connect(QtWidgets.QApplication.quit)
+        self.exit_pushButton.clicked.connect(self.exit_submit)
         self.set_java_label.setText(_translate("MainWindow", "设置Java路径：（切勿包含中文和特殊字符）"))
         self.set_java_pushButton.setText(_translate("MainWindow", "选择..."))
         self.set_java_pushButton.clicked.connect(self.browse_javaw)
@@ -213,41 +260,41 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.mem_pushButton.setText(_translate("MainWindow", "确定"))
         self.mem_pushButton.clicked.connect(self.set_memory)
         self.set_core_label.setText(_translate("MainWindow", "选择服务器核心：（一个服务器仅须操作一次,选过就不需要再操作）"))
-        self.min_mem_label.setText(_translate("MainWindow", "最小内存:          MB"))
-        self.max_mem_label.setText(_translate("MainWindow", "最大内存:          MB"))
+        self.min_mem_label.setText(_translate("MainWindow", "最小内存:            MB"))
+        self.max_mem_label.setText(_translate("MainWindow", "最大内存:            MB"))
         self.introduction_textBrowser.setHtml(_translate("MainWindow",
-                                            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                            "p, li { white-space: pre-wrap; }\n"
-                                            "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">MCSL v1.2  ——Made by LxHTT and ChinaT</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">这是由两个人制作的MC服务器启动器。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">软件包含了下载、设参、启动诸多功能。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java默认下载AdoptOpenJDK，其余可以自行百度。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; color:#000000;\">服务器核心已经支持了</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; color:#000000;\">Paper</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; color:#000000;\">和</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; color:#000000;\">Spigot</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; color:#000000;\">下载。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">服务器路径为程序同目录下的</span><span style=\" font-size:12pt; font-weight:600;\">server</span><span style=\" font-size:12pt;\">文件夹。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">如果无法启动，可使用程序在server文件夹生成的备用启动方式</span><span style=\" font-size:12pt; font-weight:600;\">command.bat</span><span style=\" font-size:12pt;\">。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">由于暂时不会考虑添加关闭服务器功能，所以如需关闭服务器，请在服务器中输入</span><span style=\" font-size:12pt; font-weight:600; color:#c80b37;\">stop</span><span style=\" font-size:12pt;\">指令来安全关闭您的服务器。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">遇到Bug，请积极反馈。反馈地址：</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:9.8pt; color:#bd93f9;\">https://www.wjx.top/vm/mBwRt23.aspx</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">主程序</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java算法：落雪无痕LxHTT   QQ：3395314362</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">下载模块</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java的UI：ChinaT   QQ：3273789867</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">——————————————————————</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.2更新日志：</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">整合各个下载程序，集成而强大。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">美化UI！！！！！！</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">优化代码的逻辑性以及可读性（原先自己都傻了）</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">———————————</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.1更新日志：</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">修复在未选择Jar情况下闪退的Bug</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">增加了配置导入导出功能。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">增加了许多温馨提示（</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">程序启动默认读取目录下的config.mcsl.ini配置文件。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">优化了各下载模块的UI。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">增加自动查找Java功能。（算法由LxHTT编写，UI由ChinaT制作）</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">———————————</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.0更新日志：</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">初版。</span></p>\n"
-                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java自动查找功能暂时不可用，可自行设定路径。</span></p></body></html>"))
+                                                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                         "p, li { white-space: pre-wrap; }\n"
+                                                         "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">MCSL v1.2  ——Made by LxHTT and ChinaT</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">这是由两个人制作的MC服务器启动器。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">软件包含了下载、设参、启动诸多功能。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java默认下载AdoptOpenJDK，其余可以自行百度。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">服务器核心已经支持了</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">Paper</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">和</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">Spigot</span><span style=\" font-family:\'宋体,monospace\'; font-size:12pt; font-weight:600; color:#ff0000;\">下载。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">服务器路径为程序同目录下的</span><span style=\" font-size:12pt; font-weight:600;\">server</span><span style=\" font-size:12pt;\">文件夹。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">如果无法启动，可使用程序在server文件夹生成的备用启动方式</span><span style=\" font-size:12pt; font-weight:600;\">command.bat</span><span style=\" font-size:12pt;\">。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">由于暂时不会考虑添加关闭服务器功能，所以如需关闭服务器，请在服务器中输入</span><span style=\" font-size:12pt; font-weight:600; color:#c80b37;\">stop</span><span style=\" font-size:12pt;\">指令来安全关闭您的服务器。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">遇到Bug，请积极反馈。反馈地址：</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:9.8pt; color:#bd93f9;\">https://www.wjx.top/vm/mBwRt23.aspx</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">主程序</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java算法：落雪无痕LxHTT   QQ：3395314362</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">下载模块</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java的UI：ChinaT   QQ：3273789867</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">——————————————————————</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.2更新日志：</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">整合各个下载程序，集成而强大。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">美化UI！！！！！！</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">优化代码的逻辑性以及可读性（原先自己都傻了）</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">———————————</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.1更新日志：</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">修复在未选择Jar情况下闪退的Bug</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">增加了配置导入导出功能。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">增加了许多温馨提示（</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">程序启动默认读取目录下的config.mcsl.ini配置文件。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">优化了各下载模块的UI。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">增加自动查找Java功能。（算法由LxHTT编写，UI由ChinaT制作）</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">———————————</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.0更新日志：</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">初版。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java自动查找功能暂时不可用，可自行设定路径。</span></p></body></html>"))
         self.export_config_toolButton.setText(_translate("MainWindow", "导出配置"))
         self.export_config_toolButton.clicked.connect(self.export_config)
         self.import_config_toolButton.setText(_translate("MainWindow", "导入配置"))
@@ -283,6 +330,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
             self.set_java_lineEdit.setText(ljavapath)
         else:
             print("1145141919810")
+    def exit_submit(self):
+        result = QMessageBox.question(self, "退出!", "是否真的要退出MCSL？", QMessageBox.Yes | QMessageBox.No,
+                                      QMessageBox.No)
+        if result == QMessageBox.Yes:
+            QtWidgets.QApplication.quit()
+        else:
+            print("1")
+
 
     # 设置
     def browse_javaw(self):
@@ -455,10 +510,11 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
 # 启动应用
 jar = False
 app = QtWidgets.QApplication(sys.argv)
+app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt5'))
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
 ui.setupUi(MainWindow)
-MainWindow = CandyWindow.createWindow(MainWindow, 'blueDeep')
+MainWindow.setWindowOpacity(0.87)
 MainWindow.setWindowTitle("MCSL v1.2")
 icon = QtGui.QIcon()
 icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
