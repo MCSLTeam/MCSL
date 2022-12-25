@@ -5,12 +5,15 @@ import os
 import string
 import sys
 import time
+import webbrowser
 from shutil import copyfile
-
 import psutil
-import qdarkstyle
+import wget
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from qt_material import apply_stylesheet
+
+os.environ["QT_FONT_DPI"] = "96"
 
 
 # 主界面
@@ -23,30 +26,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.centralwidget.setObjectName("centralwidget")
         self.start_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.start_pushButton.setGeometry(QtCore.QRect(620, 330, 100, 100))
-        self.start_pushButton.setStyleSheet("QPushButton{\n"
-                                    "    background:Gray;\n"
-                                    "    color:white;\n"
-                                    "    box-shadow: 1px 1px 3px;font-size:25px;border-radius: 10px\n"
-                                    "}\n"
-                                    "QPushButton:pressed{\n"
-                                    "    background:black;\n"
-                                    "}")
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(17)
+        font.setPointSize(30)
         self.start_pushButton.setFont(font)
         self.start_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.start_pushButton.setObjectName("start_pushButton")
         self.exit_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.exit_pushButton.setGeometry(QtCore.QRect(620, 20, 101, 41))
-        self.exit_pushButton.setStyleSheet("QPushButton{\n"
-                                    "    background:Red;\n"
-                                    "    color:White;\n"
-                                    "    box-shadow: 1px 1px 3px;font-size:14px;border-radius: 5px\n"
-                                    "}\n"
-                                    "QPushButton:pressed{\n"
-                                    "    background:black;\n"
-                                    "}")
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
@@ -55,12 +42,13 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.exit_pushButton.setObjectName("exit_pushButton")
         self.set_java_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.set_java_lineEdit.setGeometry(QtCore.QRect(30, 60, 381, 31))
+        self.set_java_lineEdit.setStyleSheet("")
         self.set_java_lineEdit.setObjectName("set_java_lineEdit")
         self.set_java_label = QtWidgets.QLabel(self.centralwidget)
         self.set_java_label.setGeometry(QtCore.QRect(30, 40, 381, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(10)
+        font.setPointSize(11)
         self.set_java_label.setFont(font)
         self.set_java_label.setTextFormat(QtCore.Qt.PlainText)
         self.set_java_label.setObjectName("set_java_label")
@@ -73,7 +61,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.set_java_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.set_java_pushButton.setObjectName("set_java_pushButton")
         self.set_java_ok_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.set_java_ok_pushButton.setGeometry(QtCore.QRect(560, 60, 51, 31))
+        self.set_java_ok_pushButton.setGeometry(QtCore.QRect(540, 60, 61, 31))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
@@ -81,37 +69,21 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.set_java_ok_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.set_java_ok_pushButton.setObjectName("set_java_ok_pushButton")
         self.auto_find_java_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.auto_find_java_pushButton.setGeometry(QtCore.QRect(490, 60, 61, 31))
+        self.auto_find_java_pushButton.setGeometry(QtCore.QRect(480, 60, 61, 31))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(9)
         self.auto_find_java_pushButton.setFont(font)
         self.auto_find_java_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.auto_find_java_pushButton.setObjectName("auto_find_java_pushButton")
-        self.auto_find_java_pushButton.setStyleSheet("QPushButton{\n"
-                                    "    background:yellow;\n"
-                                    "    color:Black;\n"
-                                    "    box-shadow: 1px 1px 3px;font-size:12px;border-radius: 5px\n"
-                                    "}\n"
-                                    "QPushButton:pressed{\n"
-                                    "    background:black;\n"
-                                    "}")
-        self.download_toolButton = QtWidgets.QToolButton(self.centralwidget)
-        self.download_toolButton.setGeometry(QtCore.QRect(620, 220, 101, 101))
+        self.download_pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.download_pushButton.setGeometry(QtCore.QRect(620, 220, 101, 101))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(17)
-        self.download_toolButton.setFont(font)
-        self.download_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.download_toolButton.setObjectName("download_toolButton")
-        self.download_toolButton.setStyleSheet("QToolButton{\n"
-                                    "    background:white;\n"
-                                    "    color:Black;\n"
-                                    "    box-shadow: 1px 1px 3px;font-size:25px;border-radius: 10px\n"
-                                    "}\n"
-                                    "QPushButton:pressed{\n"
-                                    "    background:black;\n"
-                                    "}")
+        self.download_pushButton.setFont(font)
+        self.download_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.download_pushButton.setObjectName("download_pushButton")
         self.set_core_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.set_core_pushButton.setGeometry(QtCore.QRect(30, 130, 251, 31))
         font = QtGui.QFont()
@@ -132,36 +104,32 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.set_core_label.setGeometry(QtCore.QRect(30, 110, 561, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(10)
+        font.setPointSize(11)
         self.set_core_label.setFont(font)
         self.set_core_label.setTextFormat(QtCore.Qt.PlainText)
         self.set_core_label.setObjectName("set_core_label")
         self.min_mem_label = QtWidgets.QLabel(self.centralwidget)
-        self.min_mem_label.setGeometry(QtCore.QRect(29, 180, 171, 16))
+        self.min_mem_label.setGeometry(QtCore.QRect(29, 180, 241, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(10)
+        font.setPointSize(11)
         self.min_mem_label.setFont(font)
         self.min_mem_label.setTextFormat(QtCore.Qt.PlainText)
         self.min_mem_label.setObjectName("min_mem_label")
         self.max_mem_label = QtWidgets.QLabel(self.centralwidget)
-        self.max_mem_label.setGeometry(QtCore.QRect(290, 180, 171, 16))
+        self.max_mem_label.setGeometry(QtCore.QRect(290, 180, 361, 16))
         font = QtGui.QFont()
         font.setFamily("黑体")
-        font.setPointSize(10)
+        font.setPointSize(11)
         self.max_mem_label.setFont(font)
         self.max_mem_label.setTextFormat(QtCore.Qt.PlainText)
         self.max_mem_label.setObjectName("max_mem_label")
         self.min_mem_spinBox = QtWidgets.QSpinBox(self.centralwidget)
-        self.min_mem_spinBox.setGeometry(QtCore.QRect(100, 180, 71, 22))
+        self.min_mem_spinBox.setGeometry(QtCore.QRect(100, 180, 91, 22))
         self.min_mem_spinBox.setObjectName("min_mem_spinBox")
-        self.min_mem_spinBox.setMinimum(1)
-        self.min_mem_spinBox.setMaximum(2147483647)
         self.max_mem_spinBox = QtWidgets.QSpinBox(self.centralwidget)
-        self.max_mem_spinBox.setGeometry(QtCore.QRect(360, 180, 71, 22))
+        self.max_mem_spinBox.setGeometry(QtCore.QRect(360, 180, 91, 22))
         self.max_mem_spinBox.setObjectName("max_mem_spinBox")
-        self.max_mem_spinBox.setMinimum(1)
-        self.max_mem_spinBox.setMaximum(2147483647)
         self.mem_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.mem_pushButton.setGeometry(QtCore.QRect(500, 170, 61, 31))
         font = QtGui.QFont()
@@ -173,39 +141,32 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.introduction_textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.introduction_textBrowser.setGeometry(QtCore.QRect(20, 220, 541, 211))
         self.introduction_textBrowser.setObjectName("introduction_textBrowser")
-        self.export_config_toolButton = QtWidgets.QToolButton(self.centralwidget)
-        self.export_config_toolButton.setGeometry(QtCore.QRect(620, 170, 101, 41))
+        self.export_config_pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.export_config_pushButton.setGeometry(QtCore.QRect(620, 170, 101, 41))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
-        self.export_config_toolButton.setFont(font)
-        self.export_config_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.export_config_toolButton.setObjectName("export_config_toolButton")
-        self.export_config_toolButton.setStyleSheet("QToolButton{\n"
-                                    "    background:yellow;\n"
-                                    "    color:Black;\n"
-                                    "    box-shadow: 1px 1px 3px;font-size:14px;border-radius: 5px\n"
-                                    "}\n"
-                                    "QPushButton:pressed{\n"
-                                    "    background:black;\n"
-                                    "}")
-        self.import_config_toolButton = QtWidgets.QToolButton(self.centralwidget)
-        self.import_config_toolButton.setGeometry(QtCore.QRect(620, 120, 101, 41))
+        self.export_config_pushButton.setFont(font)
+        self.export_config_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.export_config_pushButton.setObjectName("export_config_pushButton")
+        self.import_config_pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.import_config_pushButton.setGeometry(QtCore.QRect(620, 120, 101, 41))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
-        self.import_config_toolButton.setFont(font)
-        self.import_config_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.import_config_toolButton.setObjectName("import_config_toolButton")
-        self.import_config_toolButton.setStyleSheet("QToolButton{\n"
-                                    "    background:yellow;\n"
-                                    "    color:Black;\n"
-                                    "    box-shadow: 1px 1px 3px;font-size:14px;border-radius: 5px\n"
-                                    "}\n"
-                                    "QPushButton:pressed{\n"
-                                    "    background:black;\n"
-                                    "}")
+        self.import_config_pushButton.setFont(font)
+        self.import_config_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.import_config_pushButton.setObjectName("import_config_pushButton")
+        self.check_update_pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.check_update_pushButton.setGeometry(QtCore.QRect(620, 70, 101, 41))
+        font = QtGui.QFont()
+        font.setFamily("黑体")
+        font.setPointSize(10)
+        self.check_update_pushButton.setFont(font)
+        self.check_update_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.check_update_pushButton.setObjectName("check_update_pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -245,21 +206,22 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         self.exit_pushButton.setText(_translate("MainWindow", "退出程序"))
         self.exit_pushButton.clicked.connect(self.exit_submit)
         self.set_java_label.setText(_translate("MainWindow", "设置Java路径：（切勿包含中文和特殊字符）"))
-        self.set_java_pushButton.setText(_translate("MainWindow", "选择..."))
-        self.set_java_pushButton.clicked.connect(self.browse_javaw)
+        self.set_java_pushButton.setText(_translate("MainWindow", "选择"))
+        self.set_java_pushButton.clicked.connect(self.browse_java)
         self.set_java_ok_pushButton.setText(_translate("MainWindow", "确定"))
         self.set_java_ok_pushButton.clicked.connect(self.set_java_path)
-        self.auto_find_java_pushButton.setText(_translate("MainWindow", "自动查找"))
+        self.auto_find_java_pushButton.setText(_translate("MainWindow", "查找"))
         self.auto_find_java_pushButton.clicked.connect(self.show_fdjava)
-        self.download_toolButton.setText(_translate("MainWindow", "下载"))
-        self.download_toolButton.clicked.connect(self.show_dl)
+        self.download_pushButton.setText(_translate("MainWindow", "下载"))
+        self.download_pushButton.clicked.connect(self.show_dl)
         self.set_core_pushButton.setText(_translate("MainWindow", "选择..."))
         self.set_core_pushButton.clicked.connect(self.browse_jar)
         self.copy_core_pushButton.setText(_translate("MainWindow", "确定"))
         self.copy_core_pushButton.clicked.connect(self.select_core)
         self.mem_pushButton.setText(_translate("MainWindow", "确定"))
         self.mem_pushButton.clicked.connect(self.set_memory)
-        self.set_core_label.setText(_translate("MainWindow", "选择服务器核心：（一个服务器仅须操作一次,选过就不需要再操作）"))
+        self.set_core_label.setText(
+            _translate("MainWindow", "选择服务器核心：（一个服务器仅须操作一次,选过就不需要再操作）"))
         self.min_mem_label.setText(_translate("MainWindow", "最小内存:            MB"))
         self.max_mem_label.setText(_translate("MainWindow", "最大内存:            MB"))
         self.introduction_textBrowser.setHtml(_translate("MainWindow",
@@ -267,7 +229,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
                                                          "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                          "p, li { white-space: pre-wrap; }\n"
                                                          "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">MCSL v1.2  ——Made by LxHTT and ChinaT</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">MCSL v1.3  ——Made by LxHTT and ChinaT</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">这是由两个人制作的MC服务器启动器。</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">软件包含了下载、设参、启动诸多功能。</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java默认下载AdoptOpenJDK，其余可以自行百度。</span></p>\n"
@@ -279,6 +241,10 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">主程序</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java算法：落雪无痕LxHTT   QQ：3395314362</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">下载模块</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java的UI：ChinaT   QQ：3273789867</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">——————————————————————</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.3更新日志：</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">优化代码逻辑和UI，减小程序目录臃肿程度。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">添加检查更新功能，为MCSL 2铺路。</span></p>\n"
+                                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">MCSL 2使用C#开发，更加强大！</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.2更新日志：</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">整合各个下载程序，集成而强大。</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">美化UI！！！！！！</span></p>\n"
@@ -295,10 +261,12 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.0更新日志：</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">初版。</span></p>\n"
                                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java自动查找功能暂时不可用，可自行设定路径。</span></p></body></html>"))
-        self.export_config_toolButton.setText(_translate("MainWindow", "导出配置"))
-        self.export_config_toolButton.clicked.connect(self.export_config)
-        self.import_config_toolButton.setText(_translate("MainWindow", "导入配置"))
-        self.import_config_toolButton.clicked.connect(self.import_config)
+        self.export_config_pushButton.setText(_translate("MainWindow", "导出配置"))
+        self.export_config_pushButton.clicked.connect(self.export_config)
+        self.import_config_pushButton.setText(_translate("MainWindow", "导入配置"))
+        self.import_config_pushButton.clicked.connect(self.import_config)
+        self.check_update_pushButton.setText(_translate("MainWindow", "检查更新"))
+        self.check_update_pushButton.clicked.connect(self.check_update)
 
     # 窗口
     def show_dl(self):
@@ -330,6 +298,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
             self.set_java_lineEdit.setText(ljavapath)
         else:
             print("1145141919810")
+
     def exit_submit(self):
         result = QMessageBox.question(self, "退出!", "是否真的要退出MCSL？", QMessageBox.Yes | QMessageBox.No,
                                       QMessageBox.No)
@@ -338,20 +307,22 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         else:
             print("1")
 
-
     # 设置
-    def browse_javaw(self):
+    def browse_java(self):
         global ljavapath
-        javagetStr = QFileDialog.getOpenFileName(self, '选择javaw.exe程序', os.getcwd(), "javaw.exe")
+        javagetStr = QFileDialog.getOpenFileName(self, '选择java.exe程序', os.getcwd(), "java.exe")
         ljavapath = javagetStr[0]
         self.set_java_lineEdit.setText(ljavapath)
 
     def set_java_path(self):
         global ljavapath
         ljavapath = self.set_java_lineEdit.text()
-        file_set_java = open(r'config//javapath.ini', 'w+')
-        file_set_java.write(ljavapath)
-        file_set_java.close()
+        if ljavapath != "":
+            file_set_java = open(r'config//javapath.ini', 'w+')
+            file_set_java.write(ljavapath)
+            file_set_java.close()
+        else:
+            QMessageBox.information(self, "提示", "你似乎还没有选择java.exe...", QMessageBox.Yes)
 
     def set_memory(self):
         global lmin_mem
@@ -378,7 +349,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         file_set_core.close()
 
     def select_core(self):
-        if jar == True:
+        if jar:
             getCore = open(r'config//corepath.ini', 'r')
             Core = os.path.abspath(str(getCore.read()))
             toCore = os.path.abspath(r'server//server.jar')
@@ -394,14 +365,27 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
         QMessageBox.information(self, "提示",
                                 "导出前，请确定你已经设置好了以下参数：\n1.Java路径\n2.最小内存\n3.最大内存",
                                 QMessageBox.Yes)
-        export_config = open('config.mcsl.ini', 'w+')
-        ljavapath = self.set_java_lineEdit.text()
-        lmin_mem = self.min_mem_spinBox.value()
-        lmax_mem = self.max_mem_spinBox.value()
-        export_content = ljavapath + ";" + str(lmin_mem) + ";" + str(lmax_mem)
-        export_config.write(export_content)
-        export_config.close()
-        QMessageBox.information(self, "成功", "已保存在程序所在目录", QMessageBox.Yes)
+        if os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == True and os.path.isfile(r'config//maxmem.ini') == True:
+            export_config = open('config.mcsl.ini', 'w+')
+            ljavapath = self.set_java_lineEdit.text()
+            lmin_mem = self.min_mem_spinBox.value()
+            lmax_mem = self.max_mem_spinBox.value()
+            export_content = ljavapath + ";" + str(lmin_mem) + ";" + str(lmax_mem)
+            export_config.write(export_content)
+            export_config.close()
+            QMessageBox.information(self, "成功", "已保存在程序所在目录", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == False and os.path.isfile(r'config//minmem.ini') == True and os.path.isfile(r'config//maxmem.ini') == True:
+            QMessageBox.information(self, "啊这","请先设置Java路径！",QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == False and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == True:
+            QMessageBox.information(self, "啊这", "请先设置Java路径和最小内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == False and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == False:
+            QMessageBox.information(self, "啊这", "请先设置Java路径、最小内存和最大内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == True:
+            QMessageBox.information(self, "啊这", "请先设置最小内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == False:
+            QMessageBox.information(self, "啊这", "请先设置最小内存和最大内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == True and os.path.isfile(r'config//maxmem.ini') == False:
+            QMessageBox.information(self, "啊这", "请先设置最大内存！", QMessageBox.Yes)
 
     def import_config(self):
         QMessageBox.information(self, "提示", "请在接下来的窗口选择配置", QMessageBox.Yes)
@@ -433,25 +417,36 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
 
     # 开服
     def start_server(self):
-        QMessageBox.information(self, "提示",
-                                "按下后，程序未响应属正常现象，您可以放心的关掉MCSL，并静待您的服务器启动。\n关掉此窗口即开始运行",
-                                QMessageBox.Yes)
-        getJavaPath = open(r'config//javapath.ini', 'r')
-        JavaPath = str(getJavaPath.read())
-        getJavaPath.close()
-        getMinMem = open(r'config//minmem.ini', 'r')
-        MinMem = str(getMinMem.read())
-        getMinMem.close()
-        getMaxMem = open(r'config//maxmem.ini', 'r')
-        MaxMem = str(getMaxMem.read())
-        getMaxMem.close()
-        command = str(
-            "\"" + JavaPath + "\" -server -Xms" + MinMem + "M -Xmx" + MaxMem + "M -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -jar \"server.jar\"")
-        save_command = open(r'server//command.bat', '+w')
-        save_command.write(command)
-        save_command.close()
-        os.chdir("server")
-        os.system(r"command.bat")
+        QMessageBox.information(self, "提示","按下后，程序未响应属正常现象，您可以放心的关掉MCSL，并静待您的服务器启动。\n关掉此窗口即开始运行",QMessageBox.Yes)
+        if os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == True and os.path.isfile(r'config//maxmem.ini') == True:
+            getJavaPath = open(r'config//javapath.ini', 'r')
+            JavaPath = str(getJavaPath.read())
+            getJavaPath.close()
+            getMinMem = open(r'config//minmem.ini', 'r')
+            MinMem = str(getMinMem.read())
+            getMinMem.close()
+            getMaxMem = open(r'config//maxmem.ini', 'r')
+            MaxMem = str(getMaxMem.read())
+            getMaxMem.close()
+            command = str(
+                "\"" + JavaPath + "\" -server -Xms" + MinMem + "M -Xmx" + MaxMem + "M -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -jar \"server.jar\"")
+            save_command = open(r'server//command.bat', '+w')
+            save_command.write(command)
+            save_command.close()
+            os.chdir("server")
+            os.system(r"command.bat")
+        elif os.path.isfile(r'config//javapath.ini') == False and os.path.isfile(r'config//minmem.ini') == True and os.path.isfile(r'config//maxmem.ini') == True:
+            QMessageBox.information(self, "啊这","请先设置Java路径！",QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == False and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == True:
+            QMessageBox.information(self, "啊这", "请先设置Java路径和最小内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == False and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == False:
+            QMessageBox.information(self, "啊这", "请先设置Java路径、最小内存和最大内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == True:
+            QMessageBox.information(self, "啊这", "请先设置最小内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == False and os.path.isfile(r'config//maxmem.ini') == False:
+            QMessageBox.information(self, "啊这", "请先设置最小内存和最大内存！", QMessageBox.Yes)
+        elif os.path.isfile(r'config//javapath.ini') == True and os.path.isfile(r'config//minmem.ini') == True and os.path.isfile(r'config//maxmem.ini') == False:
+            QMessageBox.information(self, "啊这", "请先设置最大内存！", QMessageBox.Yes)
 
     def find_func(self):
         global panL
@@ -498,7 +493,6 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
                 javalist.write(write_java)
                 w1 = w1 + 1
             javalist.close()
-
         list_disk()
         x = 0
         for x in range(len(disk_list)):
@@ -506,16 +500,56 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtWidgets.QWidget):
             find_java()
             x = x + 1
 
+    # 检查更新
+    def check_update(self):
+        if os.path.isfile("versionInfo"):
+            os.remove("versionInfo")
+        url = 'https://raw.githubusercontent.com/LxHTT/MCSL2/main/versionInfo'
+        wget.download(url, 'versionInfo')
+        # updateInfo = requests.get(url, allow_redirects=True)
+        # open('versionInfo', 'w+').write(updateInfo.content)
+        compare_ver = open(r'versionInfo', 'r')
+        up_to_date_ver = float(compare_ver.read())
+        if up_to_date_ver > ver:
+            isOld = 1
+            update_Tips = "检测到新版本" + str(up_to_date_ver) + "按下Yes可跳转浏览器下载"
+            QMessageBox.information(self, "提示", update_Tips, QMessageBox.Yes)
+            webbrowser.open("https://lxht.lanzoub.com/b01dvnpnc?pwd=lxwh#lxwh", new=0, autoraise=True)
+        elif up_to_date_ver == ver:
+            isOld = 0
+            QMessageBox.information(self, "提示", "已经是最新版本！", QMessageBox.Yes)
+        elif up_to_date_ver < ver:
+            print("开发者是吧（")
 
+
+# 自动补全
+if not os.path.exists("server"):
+    os.mkdir("server")
+    auto_accept_eula = open(r'server//eula.txt', 'w')
+    auto_accept_eula.write("eula=true")
+    auto_accept_eula.close()
+if os.path.isfile(r'config//javapath.ini'):
+    os.remove(r'config//javapath.ini')
+if os.path.isfile(r'config//javalist.ini'):
+    os.remove(r'config//javalist.ini')
+if os.path.isfile(r'config//minmem.ini'):
+    os.remove(r'config//minmem.ini')
+if os.path.isfile(r'config//maxmem.ini'):
+    os.remove(r'config//maxmem.ini')
+if os.path.isfile(r'config//corepath.ini'):
+    os.remove(r'config//corepath.ini')
+if os.path.isfile(r'config//disklist.ini'):
+    os.remove(r'config//disklist.ini')
 # 启动应用
 jar = False
+ver = 1.3
 app = QtWidgets.QApplication(sys.argv)
-app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt5'))
+apply_stylesheet(app, theme='light_blue.xml', invert_secondary=True)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
 ui.setupUi(MainWindow)
 MainWindow.setWindowOpacity(0.87)
-MainWindow.setWindowTitle("MCSL v1.2")
+MainWindow.setWindowTitle("MCSL v1.3")
 icon = QtGui.QIcon()
 icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
 icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Selected, QtGui.QIcon.On)

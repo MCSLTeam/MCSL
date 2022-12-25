@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_window.ui'
+# Form implementation generated from reading ui file 'D:\Code\Python\MCSL\dev\main_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -17,8 +17,8 @@ class Ui_MainWindow(object):
         MainWindow.resize(752, 469)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("D:\\Code\\Python\\MCSL\\dev\\icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("D:\\Code\\Python\\MCSL\\dev\\icon.ico"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.set_java_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.set_java_pushButton.setObjectName("set_java_pushButton")
         self.set_java_ok_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.set_java_ok_pushButton.setGeometry(QtCore.QRect(560, 60, 51, 31))
+        self.set_java_ok_pushButton.setGeometry(QtCore.QRect(540, 60, 61, 31))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(10)
@@ -67,7 +67,7 @@ class Ui_MainWindow(object):
         self.set_java_ok_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.set_java_ok_pushButton.setObjectName("set_java_ok_pushButton")
         self.auto_find_java_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.auto_find_java_pushButton.setGeometry(QtCore.QRect(490, 60, 61, 31))
+        self.auto_find_java_pushButton.setGeometry(QtCore.QRect(480, 60, 61, 31))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(9)
@@ -155,6 +155,14 @@ class Ui_MainWindow(object):
         self.import_config_toolButton.setFont(font)
         self.import_config_toolButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.import_config_toolButton.setObjectName("import_config_toolButton")
+        self.check_update_pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.check_update_pushButton.setGeometry(QtCore.QRect(620, 70, 101, 41))
+        font = QtGui.QFont()
+        font.setFamily("黑体")
+        font.setPointSize(10)
+        self.check_update_pushButton.setFont(font)
+        self.check_update_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.check_update_pushButton.setObjectName("check_update_pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -162,13 +170,13 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MCSL v1.2"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MCSL v1.3"))
         self.start_pushButton.setText(_translate("MainWindow", "启动"))
         self.exit_pushButton.setText(_translate("MainWindow", "退出程序"))
         self.set_java_label.setText(_translate("MainWindow", "设置Java路径：（切勿包含中文和特殊字符）"))
-        self.set_java_pushButton.setText(_translate("MainWindow", "选择..."))
+        self.set_java_pushButton.setText(_translate("MainWindow", "选择"))
         self.set_java_ok_pushButton.setText(_translate("MainWindow", "确定"))
-        self.auto_find_java_pushButton.setText(_translate("MainWindow", "自动查找"))
+        self.auto_find_java_pushButton.setText(_translate("MainWindow", "查找"))
         self.download_toolButton.setText(_translate("MainWindow", "下载"))
         self.set_core_pushButton.setText(_translate("MainWindow", "选择..."))
         self.copy_core_pushButton.setText(_translate("MainWindow", "确定"))
@@ -180,7 +188,7 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">MCSL v1.2  ——Made by LxHTT and ChinaT</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">MCSL v1.3  ——Made by LxHTT and ChinaT</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">这是由两个人制作的MC服务器启动器。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">软件包含了下载、设参、启动诸多功能。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java默认下载AdoptOpenJDK，其余可以自行百度。</span></p>\n"
@@ -192,6 +200,10 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">主程序</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java算法：落雪无痕LxHTT   QQ：3395314362</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">下载模块</span><span style=\" font-size:12pt; color:#00aa00;\">&amp;</span><span style=\" font-size:12pt;\">自动查找Java的UI：ChinaT   QQ：3273789867</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">——————————————————————</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.3更新日志：</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">优化代码逻辑和UI，减小程序目录臃肿程度。</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">添加检查更新功能，为MCSL 2铺路。</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">MCSL 2使用C#开发，更加强大！</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">v1.2更新日志：</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">整合各个下载程序，集成而强大。</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">美化UI！！！！！！</span></p>\n"
@@ -210,3 +222,4 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Java自动查找功能暂时不可用，可自行设定路径。</span></p></body></html>"))
         self.export_config_toolButton.setText(_translate("MainWindow", "导出配置"))
         self.import_config_toolButton.setText(_translate("MainWindow", "导入配置"))
+        self.check_update_pushButton.setText(_translate("MainWindow", "检查更新"))

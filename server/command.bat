@@ -1,0 +1,1 @@
+"C:\Program Files\Eclipse Adoptium\jre-17.0.2.8-hotspot\bin\javaw.exe" -server -Xms0M -Xmx0M -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -jar "server.jar"

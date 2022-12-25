@@ -14,7 +14,7 @@
    <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>MCSL v1.2</string>
+   <string>MCSL v1.3</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -121,15 +121,15 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
-     <string>选择...</string>
+     <string>选择</string>
     </property>
    </widget>
    <widget class="QPushButton" name="set_java_ok_pushButton">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>540</x>
       <y>60</y>
-      <width>51</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
@@ -149,7 +149,7 @@
    <widget class="QPushButton" name="auto_find_java_pushButton">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>480</x>
       <y>60</y>
       <width>61</width>
       <height>31</height>
@@ -165,7 +165,7 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
-     <string>自动查找</string>
+     <string>查找</string>
     </property>
    </widget>
    <widget class="QToolButton" name="download_toolButton">
@@ -356,7 +356,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;MCSL v1.2  ——Made by LxHTT and ChinaT&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;MCSL v1.3  ——Made by LxHTT and ChinaT&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;这是由两个人制作的MC服务器启动器。&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;软件包含了下载、设参、启动诸多功能。&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Java默认下载AdoptOpenJDK，其余可以自行百度。&lt;/span&gt;&lt;/p&gt;
@@ -368,6 +368,10 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;主程序&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00aa00;&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;自动查找Java算法：落雪无痕LxHTT   QQ：3395314362&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;下载模块&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00aa00;&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;自动查找Java的UI：ChinaT   QQ：3273789867&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;——————————————————————&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;v1.3更新日志：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;优化代码逻辑和UI，减小程序目录臃肿程度。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;添加检查更新功能，为MCSL 2铺路。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;MCSL 2使用C#开发，更加强大！&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;v1.2更新日志：&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;整合各个下载程序，集成而强大。&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;美化UI！！！！！！&lt;/span&gt;&lt;/p&gt;
@@ -428,6 +432,28 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>导入配置</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="check_update_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>70</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>检查更新</string>
     </property>
    </widget>
   </widget>
